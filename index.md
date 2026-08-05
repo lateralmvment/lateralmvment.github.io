@@ -1,10 +1,15 @@
+=======================================================================================
+
 About me 
 
+=======================================================================================
 In the moment that im writing this im 20 years old, on the past 4 months i been learning about computers and all of that from COMPLETELY ZERO, before that i had no idea what was a kernel or how the network really works. I started learning about computers because i didnt know whats gonna be my path or even my destiny hahahaha i felt kinda lost in my life i mean, i have job and that, but i dont wanna do this for the rest of my life, i want to have a job that i actually enjoy alot. So now im here writing this blog until i make my dreams true, im sooooooo new at this but i actually enjoy this field and every day im trying to be better and better.
 
 =======================================================================================
+
 Starting Point
 Ok this are the things that i know in this EXACT moment (4/08/26)
+
 =======================================================================================
 Basic Networking: When i started i didnt knew NOTHING about networking so after a few weeks of seeing videos, free courses and the help of AI and my notes. Now i know almost all of the basics of networking, TCP, UDP, HTTP, HTTPS, DNS, CG-NAT, DDNS, IPv4, IPv6, and yeah u will see on my notes hahaha.
 
@@ -26,7 +31,10 @@ HTB (starting point):
 This is another good thing that im very happy about it, i passed all the starting point
 levels, and i have alot of things to say, it was such a nice experience, kinda challenging, i learned alot in that few boxes, because at the end i think HTB is a really great tool to learn about cybersecurity, and even feel like a hacker hahaha.
 
-=======================================================================================Next tiny goals:
+=======================================================================================
+
+Next tiny goals:
+
 =======================================================================================
 
 HTB: I just passed the starting point so for now i havent done any "normal" easy box
@@ -37,12 +45,18 @@ Python: I know that is such a basic language but yeah I TOLD U i just started wi
 
 This website: I wanna fill of content this blog because i wanna remember the things that i did and even if theres a curious guy out there they can see my things too, thats a win win. 
 
-=======================================================================================final goals:
+=======================================================================================
+
+final goals:
+
 =======================================================================================
 
 -Do bugbounties
+
 -Become a pentester
+
 -Being a red team member
+
 -Having an IT/cybersecurity related job
 
 
