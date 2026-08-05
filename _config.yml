@@ -1,3 +1,8 @@
 theme: jekyll-theme-minimal
-title: Lateral's blog!
-description: My roadmap to become a pentester!
+remote_theme: pages-themes/hacker@v0.2.0
+plugins:
+- jekyll-remote-theme
+title: My First Blog!
+description: roadmap from ABSOLUTE ZERO to pentester! wish me luck
+
+
