@@ -1,5 +1,3 @@
-
-
 Networked - HackTheBox
 
 OS: Linux
