@@ -1,3 +1,4 @@
+
 Networked - HackTheBox
 
 OS: Linux
@@ -17,12 +18,19 @@ We find ssh and apache on his normal ports. After going into the webpage
 we see a message saying that they are building the web FaceMash etc, nothing
 too important here. So i used gobuster to find files and folders, after a while
 we find this:
+
 /index.php 200
-/upload.php 200 
+
+/upload.php 200
+
 /uploads 301
+
 /photos.php 200 
+
 /lib.php 200
+
 /backup 301 
+
 
 with /upload.php we can upload files on the server, the /backup contains a tar
 archive that i downloaded and that thing cointains the source code of the PHP 
@@ -38,7 +46,7 @@ Its vulnerable to double file extension
 
 So knowing all those things lets upload a file!!
 we are gonna upload this command to put a webshell on the server:
-<?php system($_GET['cmd']); ?>
+''<?php system($_GET['cmd']); ?>''
 buuuut if we upload this file like this its gonna say its invalid sooo we are gonna
 use the magic bytes first, or in my case put this command on the metadata of a jpg 
 file.
