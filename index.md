@@ -4,7 +4,7 @@ About me
 
 =======================================================================================
 
-On the past 4 months i been learning about computers and all of that from COMPLETELY ZERO, before that i had no idea what was a kernel or how the network really works. I started learning about computers because i didnt know whats gonna be my path or even my destiny hahahaha i felt kinda lost in my life i mean, i have job and that, but i dont wanna do this for the rest of my life, i want to have a job that i actually enjoy alot. So now im here writing this blog until i make my dreams true, every day im trying to be better and better.
+I been learning about computers and all of that from COMPLETELY ZERO, before that i had no idea what was a kernel or how the network really works. I started investigating by myself and from now i think theres no way back, so im here to show you all my process.
 
 =======================================================================================
 
@@ -33,11 +33,8 @@ Next tiny goals:
 
 =======================================================================================
 
-HTB: I havent done any "normal" easy box but in some point its better because i will document almost all of them. 
 
 PortSwigger Web Academy: I wanna start getting better on web hacking because i feel so attracted to it, so im gonna use this resource to improve my skills.
-
-Python: When HTB naturally ask me to do automated things i will learn it, why not now? shhhhhh just enjoy the blog man hahahahah i will learn it in 1 or 2 months and in my opinion i can learn it in 1 month idk.
 
 This website: I wanna fill of content this blog because i wanna remember the things that i did and even if theres a curious guy out there they can see my things too, thats a win win. 
 
