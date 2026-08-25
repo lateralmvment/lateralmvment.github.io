@@ -73,6 +73,10 @@ final goals:
   {% endif %}
 {% endfor %}
 
+Busqueda
+Networked
+Sau
+
 # Medium
 {% assign sorted_writeups = site.pages | sort: "date" | reverse %}
 {% for post in sorted_writeups %}
