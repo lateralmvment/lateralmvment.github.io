@@ -13,7 +13,7 @@ Pawn Date: 19/08/26
 
 Recognition
  nmap
-nmap -sVC -p- IP
+```nmap -sVC -p- IP```
 
 Ports found: 22,80
 
