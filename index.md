@@ -1,20 +1,15 @@
-
-
 ---
 layout: default
 ---
 
-=======================================================================================
-About me
-=======================================================================================
 I been learning about computers and all of that from 
 COMPLETELY ZERO, before that i had no idea what was a kernel or how the 
 network really works. I started investigating by myself and from now i 
 think theres no way back, so im here to show you all my process.
-=======================================================================================
+
 Starting Point
 Ok this are the things that i know in this EXACT moment (4/08/26)
-=======================================================================================
+
 Basic Networking: When i started i didnt knew NOTHING 
 about networking so after a few weeks of seeing videos, free courses and
  the help of AI and my notes. Now i know almost all of the basics of 
@@ -50,29 +45,28 @@ great because if its complicated and you stay there studying you will
 get better than just seeing a Youtube video or a walktrough, at least 
 for me i felt a big difference before starting with hack the box than 
 after.
-=======================================================================================
+
 Next tiny goals:
-=======================================================================================
+
 PortSwigger Web Academy: I wanna start getting better on 
 web hacking because i feel so attracted to it, so im gonna use this 
 resource to improve my skills.
 This website: I wanna fill of content this blog because i 
 wanna remember the things that i did and even if theres a curious guy 
 out there they can see my things too, thats a win win.
-=======================================================================================
+
 final goals:
-=======================================================================================
+
 -Do bugbounties
 -Become a pentester
 -Being a red team member
 -Having an IT/cybersecurity related job
-:)
 
 =======================================================================================
 Writeups
 =======================================================================================
 
-## 🟢 Easy
+## Easy
 
 <ul>
 {% assign sorted_writeups = site.writeups | sort: "path" %}
@@ -83,7 +77,7 @@ Writeups
 {% endfor %}
 </ul>
 
-## 🟡 Medium
+## Medium
 
 <ul>
 {% for post in sorted_writeups %}
