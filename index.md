@@ -66,7 +66,7 @@ final goals:
 Writeups
 
 
-Easy
+#Easy
 
 {% for post in sorted_writeups %}
   {% if post.path contains 'writeups/Easy/' %}
@@ -74,9 +74,8 @@ Easy
   {% endif %}
 {% endfor %}
 
-Busqueda
 
-Medium
+#Medium
 
 {% for post in sorted_writeups %}
   {% if post.path contains 'writeups/Medium/' %}
