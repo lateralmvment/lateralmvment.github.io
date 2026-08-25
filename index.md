@@ -72,7 +72,7 @@ Writeups
 {% assign sorted_writeups = site.writeups | sort: "path" %}
 {% for post in sorted_writeups %}
   {% if post.path contains 'writeups/Easy/' %}
-    <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+    <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.Busqueda.md }}</a></li>
   {% endif %}
 {% endfor %}
 </ul>
