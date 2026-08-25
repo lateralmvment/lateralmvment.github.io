@@ -6,6 +6,6 @@ title: My First Blog!
 description: roadmap from ABSOLUTE ZERO to pentester! wish me luck
 
 collections:
-  writeups: Busqueda, Networked, Sau
+  writeups: Busqueda,Networked,Sau
     output: true
     permalink: /:collection/:path/
