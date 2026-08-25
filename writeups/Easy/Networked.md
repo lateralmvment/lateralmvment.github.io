@@ -1,6 +1,6 @@
-
 ---
 title: "Networked"
+date: 19-08-26
 ---
 
 Networked - HackTheBox
