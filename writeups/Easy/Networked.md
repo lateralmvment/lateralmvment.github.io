@@ -1,3 +1,8 @@
+
+---
+title: "Networked"
+---
+
 Networked - HackTheBox
 
 OS: Linux
