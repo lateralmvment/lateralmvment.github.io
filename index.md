@@ -69,10 +69,9 @@ Writeups
 ## Easy
 
 <ul>
-{% assign sorted_writeups = site.writeups | sort: "path" %}
 {% for post in sorted_writeups %}
-  {% if post.path contains 'writeups/Easy/' %}
-    <li><a href="{{  https://lateralmvment.github.io/}}{{  https://lateralmvment.github.io/}}">{{ Busqueda }}</a></li>
+  {% if post.path contains 'writeups/Medium/' %}
+    <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.Busqueda }}</a></li>
   {% endif %}
 {% endfor %}
 </ul>
