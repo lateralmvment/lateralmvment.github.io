@@ -1,4 +1,5 @@
 ---
+layout: default
 title: "Networked"
 date: 19-08-26
 ---
