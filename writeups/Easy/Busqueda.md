@@ -1,5 +1,3 @@
-Markdown
-
 ---
 title: "Busqueda"
 date: 2026-08-24
