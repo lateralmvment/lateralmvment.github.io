@@ -63,18 +63,18 @@ final goals:
 -Having an IT/cybersecurity related job
 
 
-#Writeups
+# Writeups
 
-# Easy
-{% assign sorted_writeups = site.pages | sort: "date" | reverse %}
+## Easy
+{% assign sorted_writeups = site.writeups | sort: "date" | reverse %}
 {% for post in sorted_writeups %}
   {% if post.path contains 'writeups/Easy/' %}
 - [{{ post.title }}]({{ post.url }})
   {% endif %}
 {% endfor %}
 
-# Medium
-{% assign sorted_writeups = site.pages | sort: "date" | reverse %}
+## Medium
+{% assign sorted_writeups = site.writeups | sort: "date" | reverse %}
 {% for post in sorted_writeups %}
   {% if post.path contains 'writeups/Medium/' %}
 - [{{ post.title }}]({{ post.url }})
