@@ -65,20 +65,18 @@ final goals:
 
 Writeups
 
-
-#Easy
-
+# Easy
+{% assign sorted_writeups = site.posts | sort: "date" | reverse %}
 {% for post in sorted_writeups %}
   {% if post.path contains 'writeups/Easy/' %}
-    - [{{ post.title }}]({{ post.url }})
+- [{{ post.title }}]({{ post.url }})
   {% endif %}
 {% endfor %}
 
-
-#Medium
-
+# Medium
+{% assign sorted_writeups = site.posts | sort: "date" | reverse %}
 {% for post in sorted_writeups %}
   {% if post.path contains 'writeups/Medium/' %}
-    - [{{ post.title }}]({{ post.url }})
+- [{{ post.title }}]({{ post.url }})
   {% endif %}
 {% endfor %}
