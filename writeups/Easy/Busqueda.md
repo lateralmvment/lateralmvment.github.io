@@ -1,3 +1,7 @@
+---
+title: "Busqueda"
+---
+
 Busqueda - HackTheBox
 
 OS: Linux
