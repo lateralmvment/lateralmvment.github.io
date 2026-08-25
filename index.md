@@ -66,24 +66,20 @@ final goals:
 Writeups
 
 
-## Easy
+Easy
 
-<ul>
 {% for post in sorted_writeups %}
-  {% if post.path contains 'writeups/Medium/' %}
-    <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+  {% if post.path contains 'writeups/Easy/' %}
+    - [{{ post.title }}]({{ post.url }})
   {% endif %}
 {% endfor %}
-</ul>
 
 Busqueda
 
-## Medium
+Medium
 
-<ul>
 {% for post in sorted_writeups %}
   {% if post.path contains 'writeups/Medium/' %}
-    <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+    - [{{ post.title }}]({{ post.url }})
   {% endif %}
 {% endfor %}
-</ul>
