@@ -63,7 +63,7 @@ final goals:
 -Having an IT/cybersecurity related job
 
 
-Writeups
+#Writeups
 
 # Easy
 {% assign sorted_writeups = site.pages | sort: "date" | reverse %}
