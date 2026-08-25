@@ -71,10 +71,12 @@ Writeups
 <ul>
 {% for post in sorted_writeups %}
   {% if post.path contains 'writeups/Medium/' %}
-    <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.Busqueda }}</a></li>
+    <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
   {% endif %}
 {% endfor %}
 </ul>
+
+Busqueda
 
 ## Medium
 
