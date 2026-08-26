@@ -1,5 +1,6 @@
 ---
-title: "update1"
+layout: default
+title: "First Update"
 date: 2026-08-25
 ---
 
