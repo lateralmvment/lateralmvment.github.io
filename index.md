@@ -32,6 +32,8 @@ harder and harder on each level. But i made it and im so happy about it,
 myself for stay on the levels and actually learn. But yeah idk if im 
 dumb or why the
 advanced levels are so hard.
+
+
 HTB (starting point):
 This is another good thing that im very happy about it, i passed all the
  starting point
@@ -53,6 +55,7 @@ Next tiny goals:
 PortSwigger Web Academy: I wanna start getting better on 
 web hacking because i feel so attracted to it, so im gonna use this 
 resource to improve my skills.
+
 This website: I wanna fill of content this blog because i 
 wanna remember the things that i did and even if theres a curious guy 
 out there they can see my things too, thats a win win.
