@@ -1,7 +1,6 @@
 ---
-Layout: Default
-Title: update1
-Date: 25/08/26
+title: "update1"
+date: 2026-08-25
 ---
 
 Ok this is my first Blog Update in this personal space hahaha
