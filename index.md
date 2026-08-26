@@ -51,25 +51,29 @@ for me i felt a big difference before starting with hack the box than
 after.
 
 # Preparation Updates
-{% assign sorted_blog = site.blog | sort: "date" | reverse %}
-{% for post in sorted_blog %}
-  {% if post.path contains '_Blog/Update/' %}
+{% if site.blog %}
+  {% assign sorted_blog = site.blog | sort: "date" | reverse %}
+  {% for post in sorted_blog %}
 - [{{ post.title }}]({{ post.url }})
-  {% endif %}
-{% endfor %}
+  {% endfor %}
+{% endif %}
 
 ## Easy
-{% assign sorted_writeups = site.writeups | sort: "date" | reverse %}
-{% for post in sorted_writeups %}
-  {% if post.path contains '_writeups/HTB/Easy/' %}
+{% if site.writeups %}
+  {% assign sorted_writeups = site.writeups | sort: "date" | reverse %}
+  {% for post in sorted_writeups %}
+    {% if post.path contains 'Easy' %}
 - [{{ post.title }}]({{ post.url }})
-  {% endif %}
-{% endfor %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
 
 ## Medium
-{% assign sorted_writeups = site.writeups | sort: "date" | reverse %}
-{% for post in sorted_writeups %}
-  {% if post.path contains '_writeups/HTB/Medium/' %}
+{% if site.writeups %}
+  {% assign sorted_writeups = site.writeups | sort: "date" | reverse %}
+  {% for post in sorted_writeups %}
+    {% if post.path contains 'Medium' %}
 - [{{ post.title }}]({{ post.url }})
-  {% endif %}
-{% endfor %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
