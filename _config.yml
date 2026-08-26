@@ -7,6 +7,8 @@ description: roadmap from ABSOLUTE ZERO to pentester! wish me luck
 
 collections:
       Blog:
+    output: true
+    permalink: /:collection/:path/
   writeups: 
     output: true
     permalink: /:collection/:path/
