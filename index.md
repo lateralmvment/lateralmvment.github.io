@@ -50,22 +50,8 @@ get better than just seeing a Youtube video or a walktrough, at least
 for me i felt a big difference before starting with hack the box than 
 after.
 
-Next tiny goals:
-
-PortSwigger Web Academy: I wanna start getting better on 
-web hacking because i feel so attracted to it, so im gonna use this 
-resource to improve my skills.
-
-This website: I wanna fill of content this blog because i 
-wanna remember the things that i did and even if theres a curious guy 
-out there they can see my things too, thats a win win.
-
-final goals:
-
--Do bugbounties
--Become a pentester
--Having an IT/cybersecurity related job
-
+# Preparation Updates
+ 
 
 # Writeups
 
