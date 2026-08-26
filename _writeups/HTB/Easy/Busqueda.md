@@ -3,26 +3,27 @@ layout: default
 title: "Busqueda"
 date: 2026-08-24
 ---
-Busqueda - HackTheBox
+# Busqueda - HackTheBox
 
-OS: Linux
+**OS:** Linux
 
-Difficulty: Easy
+**Difficulty:** Easy
 
-Pawn Date: 24/08/26
+**Pawn Date:** 24/08/26
 
 ---
 
-Recognition
- nmap 
+## Recognition
+ ### nmap 
 ```
 nmap -p- -sVC IP
 ```
 
-Ports Found: 
-22,80
+**Ports Found:** 22 (SSH) 80 (HTTP)
 
-Enumeration:
+---
+
+## Enumeration:
 
 They are only 2 open ports, Openssh and Apache. If you connect via http they will
 redirect you to ``` http://searcher.htb ```. So i decided to add this domain to my
@@ -36,14 +37,14 @@ the webpage. it says "Powered by Flask and Searchor 2.4.0" so now i knew what i 
 i looked on google to see if theres a CVE for that version of Searchor.
 
 
-Initial Access:
+## Initial Access:
 
 After i checked on google i found this CVE ```` CVE-2023-43364. ```` the vulnerability allows
 us RCE via the unsafe use of ```` eval() ```` that executes arbitrary Python code, so injecting
 code in the search query leads to RCE. So now we are going to install a tool on github that is
 gonna make all the hard work for us. 
 
-Exploit:
+## Exploit:
 
 After i searched "CVE-2023-43364 Exploit" i found this github repo ```Herick-Costa
 CVE-2023-43364-Searchor-RCE-Exploit``` and after learning how to use it i set my nc listener as
@@ -54,7 +55,7 @@ and now we got a the reverse shell, as always i upgrade the shell with
 ``` cat /home/svc/user.txt ```.
 
 
-Privilege Escalation:
+## Privilege Escalation:
 
 After getting the user flag, i checked the full user directory with ``` ls -la ``` and i saw this
 ```
@@ -101,7 +102,7 @@ and i found this .git archive:
         remote = origin
         merge = refs/heads/main
 ````
-this "jh1usoih2bkjaspwe92" looks like a password so i tried ``` sudo -l ``` and... IT works
+this **"jh1usoih2bkjaspwe92"** looks like a password so i tried ``` sudo -l ``` and... IT works
 so, this is what i got 
 
 ```
@@ -138,7 +139,7 @@ dockers and how to use it and whats the "format" thing, after that i knew how to
 ``` sudo python3 /opt/scripts/system-checkup.py docker-inspect format='{{json .}}' gitea | jq .``` (jq is for pretty print on 
 json format btw) 
 
-And i got this:
+### And i got this:
 ```
 {                                                         
   "Id": "960873171e2e2058f2ac106ea9bfe5d7c737e8ebd358a39d2dd91548afd0ddeb",
@@ -223,7 +224,7 @@ And after checking the source code of all the scripts on Gitea i saw this:
 they run ``` full-checkup.sh ``` from the directory that you are so, probably we can make a malicious script 
 with the same name and ran it wit root privileges 
 
-Final Explotation:
+## Final Explotation:
 
 on the /tmp directory we create the malicious SUID file with the "full-checkup" name:
 ``` echo -e '#!/bin/bash\n\ncp /bin/bash /tmp/alv\nchmod 4777 /tmp/alv' > full-checkup ```
@@ -238,7 +239,7 @@ it will say ``` [+] Done! ```
 After that we just need to execute it with the flag -p to preserve the root permissions
 ``` /tmp/alv -p ``` and grab the flag ``` cat /root/root.txt ```
 
-Lessons Learned:
+## Lessons Learned:
 
 - ALWAYS read the documentation
 - theres no a single way to pawn a box
