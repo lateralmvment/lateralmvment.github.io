@@ -4,7 +4,6 @@ title: "First Update"
 date: 2026-08-25
 ---
 
-Ok this is my first Blog Update in this personal space hahaha
 
 Theres alot of things to say theres alot of things that i learned, i will try to write
 some of them, because for obvious reasons i cant remember and i cant type everything,
