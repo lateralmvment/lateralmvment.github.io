@@ -51,8 +51,8 @@ for me i felt a big difference before starting with hack the box than
 after.
 
 # Preparation Updates
-{% assign sorted_Blog = site.blog | sort: "date" | reverse %}
-{% for post in sorted_Blog %}
+{% assign sorted_blog = site.blog | sort: "date" | reverse %}
+{% for post in sorted_blog %}
   {% if post.path contains '_Blog/Update/' %}
 - [{{ post.title }}]({{ post.url }})
   {% endif %}
