@@ -64,7 +64,6 @@ final goals:
 
 -Do bugbounties
 -Become a pentester
--Being a red team member
 -Having an IT/cybersecurity related job
 
 
