@@ -6,6 +6,7 @@ title: My First Blog!
 description: roadmap from ABSOLUTE ZERO to pentester! wish me luck
 
 collections:
+      Blog:
   writeups: 
     output: true
     permalink: /:collection/:path/
