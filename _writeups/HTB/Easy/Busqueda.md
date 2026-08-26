@@ -18,7 +18,6 @@ Recognition
 ```` nmap -p- -sVC IP ````
 
 Ports Found: 
-
 22,80
 
 Enumeration:
