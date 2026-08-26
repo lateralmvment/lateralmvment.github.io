@@ -24,7 +24,7 @@ nmap -sVC -p- IP
  
 ## Enumeration
  
-Only two open ports — SSH and Apache. The webpage shows a message about building a site called FaceMash, nothing useful there. I ran gobuster to find hidden files and directories:
+Only two open ports — SSH and Apache. The webpage shows a message about building a site called FaceMash, nothing so useful there. i ran gobuster to find hidden files and directories:
  
 ```
 /index.php   200
