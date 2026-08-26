@@ -21,6 +21,8 @@ computers. The video that i was seeing said that if you wanna understand
  how computers work switch to linux, and then i just switched to debian,
  at the end im very curious and i guess that helped me to get a "good" 
 level of linux.
+
+
 bandit (OverTheWire):
 I passed ALL the goddamn levels, the guys who recommend this to an 
 absolutely new guy
