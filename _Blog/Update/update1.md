@@ -1,4 +1,5 @@
 ---
+Layout: Default
 Title: update1
 Date: 25/08/26
 ---
