@@ -4,7 +4,7 @@ title: "Networked"
 date: 19-08-26
 ---
 
-#Networked - HackTheBox
+# Networked - HackTheBox
  
 **OS:** Linux  
 **Difficulty:** Easy  
