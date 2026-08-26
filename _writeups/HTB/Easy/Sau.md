@@ -19,7 +19,6 @@ Recognition:
 ```` nmap -sVC -p- -v IP ````
 
 Ports found:
-
 22,80 (filtered),8338 (filtered),55555
 
 Enumeration:
