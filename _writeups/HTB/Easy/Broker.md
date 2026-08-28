@@ -17,7 +17,7 @@ date: 2026-08-27
 ## Recognition
  ### nmap 
 ```
-nmap -p- --min-rate 80000 IP
+nmap -p- --min-rate 8000 IP
 ```
 
 **Ports Found:** 22 (SSH) 80 (http) 61613,61616 (ActiveMQ) 1883 (mqtt) 5672 (amqp)
