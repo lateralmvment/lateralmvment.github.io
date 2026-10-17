@@ -8,8 +8,6 @@ date: 2026-10-17
 
 ---
 
-![214](../assets/Pasted%20image%2020261017084241.png)
-
 
 ## Resumen Ejecutivo
 
@@ -331,3 +329,4 @@ sudo cat /root/root.txt
 | T1548.003 | Abuse Elevation Control Mechanism: Sudo and Sudo Caching | Escritura de fragmento sudoers via CUPS para obtener sudo sin contraseña |
 
 ---
+
