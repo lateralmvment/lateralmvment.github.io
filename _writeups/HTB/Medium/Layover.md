@@ -7,7 +7,7 @@ date: 2026-10-17
 
 ---
 
-![214](../assets/Pasted%20image%2020261017084241.png)
+![](../assets/layover.png)
 
 
 ## Resumen Ejecutivo
