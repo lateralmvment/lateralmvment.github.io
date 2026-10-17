@@ -12,7 +12,7 @@ date: 2026-10-17
 
 ## Resumen Ejecutivo
 
-Layover es una máquina Medium Linux que simula un entorno corporativo de aeropuerto con una red WiFi interna. El acceso inicial llega por RDP a un jumpbox, desde donde se conecta a una red WiFi simulada (mac80211\_hwsim) para capturar credenciales de un usuario en texto claro via sniffing pasivo. Con esas credenciales se explota una vulnerabilidad de inyección de comportamiento en Craft CMS 5.9.8 que permite RCE sin ser administrador. El movimiento lateral requiere descifrar una contraseña cifrada con la clave de seguridad del CMS. La escalada a root se consigue abusando de CVE-2026-34990, una vulnerabilidad en CUPS 2.4.16 que permite a cualquier usuario local capturar un token de autenticación del demonio de impresión y usarlo para escribir archivos arbitrarios como root — en este caso, un fragmento de sudoers.
+Layover es una máquina Medium Linux que simula un entorno corporativo de aeropuerto con una red WiFi interna. El acceso inicial llega por RDP a un jumpbox, desde donde se conecta a una red WiFi simulada (mac80211\_hwsim) para capturar credenciales de un usuario en texto claro via sniffing pasivo. Con estas credenciales se explota una vulnerabilidad de inyección de comportamiento en Craft CMS 5.9.8 que permite RCE sin ser administrador. El movimiento lateral requiere descifrar una contraseña cifrada con la clave de seguridad del CMS. La escalada a root se consigue abusando de CVE-2026-34990, una vulnerabilidad en CUPS 2.4.16, que permite a cualquier usuario local capturar un token de autenticación del demonio de impresión y usarlo para escribir archivos arbitrarios como root — en este caso, un fragmento de sudoers.
 
 ---
 
