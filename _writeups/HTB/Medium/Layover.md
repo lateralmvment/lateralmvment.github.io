@@ -7,7 +7,7 @@ date: 2026-10-17
 
 ---
 
-![](../assets/layover.png)
+![](/assets/layover.png)
 
 
 ## Resumen Ejecutivo
