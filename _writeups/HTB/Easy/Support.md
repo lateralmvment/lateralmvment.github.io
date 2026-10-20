@@ -520,7 +520,7 @@ no hay privilegios de escalada local obvios (no SeImpersonate, no SeBackup, nada
 
 Conclusión: no hay escalada LOCAL evidente desde este shell. Como siempre lo que haremos sera que como ya soy un usuario autenticado del dominio, revisare que PERMISOS tiene esta cuenta sobre otros objetos de AD (no en el sistema operativo, sino en el directorio). Para esto como siempre BloodHound.
 
-![580](../assets/Pasted%20image%2020261019215237.png)
+![](/assets/support.png)
 
 BloodHound me enseña claramente el `GenericAll`, sabiendo que tenemos el `SeMachineAccountPrivilege` podemos confirmar RBCD.
 
