@@ -8,7 +8,14 @@ date: 2026-10-20
 
 ## TL;DR 
 
-SMB null session > UserInfo.exe (support-tools share) > decompilación > contraseña hardcodeada (XOR+Base64) > cuenta ldap > LDAP dump autenticado > credencial en atributo "info" > cuenta support > GenericAll sobre DC$ (BloodHound) > RBCD > impersonacion Administrator > DCSync > dominio comprometido 
+- **Acceso inicial:** SMB Anónimo / Null Session
+- **Reconocimiento:** Extracción de `UserInfo.exe` desde recurso compartido de soporte
+- **Ingeniería inversa:** Descompilación para extraer contraseña hardcodeada (XOR + Base64)
+- **Enumeración:** Dump LDAP autenticado $\rightarrow$ credencial válida en atributo `info`
+- **Análisis (BloodHound):** Permiso `GenericAll` del usuario sobre `DC$`
+- **Escalación de privilegios:** Ataque RBCD (Resource-Based Constrained Delegation)
+- **Lateral / Vertical Movement:** Impersonación de `Administrator` vía S4U
+- **Objetivo final:** DCSync $\rightarrow$ **Dominio comprometido**
 
 ---
 
