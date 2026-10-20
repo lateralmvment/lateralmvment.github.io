@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "Layover"
-date: 2026-10-17
+title: "Support"
+date: 2026-10-20
 ---
 ## Support - HTB Writeup
 ---
