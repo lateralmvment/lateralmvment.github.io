@@ -89,7 +89,7 @@ drwxr-xr-x 4 root root 4096 Oct 21 00:01 ..
 - `addr=$IP`arregla un bug conocido que estaba teniendo
 - `vers=3` especifica la versioon (ya que si no funcionaba con la 3 funcionaria con la 4)
 
-**El NFS de onboarding filtro un archivo que parece "jugoso", al revisarlo nos damos cuenta que son creds del empleado Kevin Mitchell**
+**El NFS de onboarding filtro un archivo que parece "jugoso", al revisarlo nos damos cuenta que son creds**
 ![](/assets/enigma2.png)
 
 Si nos dirigimos a la URL que nos manda veremos que hay un login panel **Roundcube**, al autenticarnos como **kevin**, lo primero que vemos es este correo del usuario `sara@enigma.htb`.
