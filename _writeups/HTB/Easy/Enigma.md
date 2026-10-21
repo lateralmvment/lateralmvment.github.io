@@ -32,7 +32,7 @@ Lo que tenemos delante es una maquina con NFS/RPC expuesto la via mas probable e
 
 **Enumeracion RPC y exports NFS**
 ```zsh
-cybrsex /workspace # rpcinfo -p $IP                                                      
+rpcinfo -p $IP                                                      
    program vers proto   port  service
     100000    4   tcp    111  portmapper
     100000    3   tcp    111  portmapper
@@ -60,7 +60,7 @@ cybrsex /workspace # rpcinfo -p $IP
 ```
 
 ```zsh
-cybrsex /workspace # showmount -e $IP
+showmount -e $IP
 Export list for 10.129.141.208:
 /srv/nfs/onboarding *
 ```
