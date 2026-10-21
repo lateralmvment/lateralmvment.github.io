@@ -4,7 +4,7 @@ title: "Enigma"
 date: 2026-10-21
 ---
 
-![192](../../assets/Pasted%20image%2020261020232703.png)
+![](assets/enigma1.png)
 ## Reconocimiento
 Tiramos rustscan porque solo es un folder para el clasico Nmap
 ```zsh
@@ -90,14 +90,14 @@ drwxr-xr-x 4 root root 4096 Oct 21 00:01 ..
 - `vers=3` especifica la versioon (ya que si no funcionaba con la 3 funcionaria con la 4)
 
 **El NFS de onboarding filtro un archivo que parece "jugoso", al revisarlo nos damos cuenta que son creds del empleado Kevin Mitchell**
-![461](../../assets/Pasted%20image%2020261021001349.png)
+![](assets/enigma2.png)
 
 Si nos dirigimos a la URL que nos manda veremos que hay un login panel **Roundcube**, al autenticarnos como **kevin**, lo primero que vemos es este correo del usuario `sara@enigma.htb`.
-![](../../assets/Pasted%20image%2020261021092532.png)
+![](assets/enigma3.png)
 
 Al ver que es un usuario de correo con **el mismo formato de correo** intento autenticarme como `sara@enigma.htb` con la misma contraseña `Enigma2024!`, esto lo pruebo ya que es comun que en correos institucionales o empresariales, otorguen correos con la misma contraseña. Asi que si algun usuario **no cambio la contraseña por defecto** podriamos autenticarnos como ellos (asi como hicimos con **kevin**).
 
-![](../../assets/Pasted%20image%2020261021093153.png)
+![](assets/enigma4.png)
 
 Como en muchos casos, funciono y nos dieron una nueva URL (la cual es una login page) y credenciales para esta misma, al introducirlas vermos que tenemos acceso a **OpenSTAManager**, un software de gestion empresarial open-source (ERP ligero: facturación, tareas, clientes, inventario) escrito en PHP, bastante usado en PyMEs. 
 
